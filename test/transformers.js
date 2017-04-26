@@ -186,25 +186,37 @@ describe('transformers', () => {
 
         assert.deepPropertyVal(
           node,
-          'expression.operator',
+          'type',
+          'IfStatement'
+        )
+
+        assert.deepPropertyVal(
+          node,
+          'test.value',
+          'value'
+        )
+
+        assert.deepPropertyVal(
+          node,
+          'consequent.expression.operator',
           '='
         )
 
         assert.deepPropertyVal(
           node,
-          'expression.left.object.name',
+          'consequent.expression.left.object.name',
           state.name
         )
 
         assert.deepPropertyVal(
           node,
-          'expression.left.property.name',
+          'consequent.expression.left.property.name',
           'required'
         )
 
         assert.deepPropertyVal(
           node,
-          'expression.right.value',
+          'consequent.expression.right.value',
           true
         )
       })

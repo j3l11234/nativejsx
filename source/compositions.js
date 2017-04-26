@@ -35,13 +35,13 @@ compositions.setAttribute = (variable, attribute, assignmentExpression) => {
   let mappedAttribute = attributes[attribute] || attribute
 
   if (isProperty) {
-    return generators.assigns(
+    return generators.if(assignmentExpression, generators.assigns(
       generators.member(
         generators.identifier(variable),
         generators.identifier(mappedAttribute)
       ),
       generators.literal(true)
-    )
+    ), null)
   } else {
     return generators.expressionStatement(
       generators.callExpression(
